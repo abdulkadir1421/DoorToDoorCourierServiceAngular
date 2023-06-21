@@ -1,0 +1,156 @@
+
+<div style="margin-left: 100px; margin-right: 100px; margin-top: 20px;">
+    
+    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" >Add New Branch</h3>
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="BranchNameid">Branch Name</label>
+                    <input 
+                    type="text" 
+                    name="branchName"
+                    id="BranchNameid" 
+                    class="form-control 
+                    form-control-lg"
+                    [(ngModel)]="form.branchName"
+                    required 
+                    minlength="3" 
+                    maxlength="20" 
+                    #branchName="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && branchName.errors }"  
+                    />
+                    
+                </div>
+    
+            </div>
+            <div class="col-md-6 mb-4">
+    
+                <div class="form-outline">
+                    <label class="form-label" for="districttNameid">District Name</label>
+                    <select 
+                    id='districttNameid' 
+                    name='districtName' 
+                    class="form-control form-control-lg"
+                    (ngModelChange)="loadThana($event)"  
+                    [(ngModel)]="form.districtName"
+                    #districtName="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && districtName.errors }"
+                    >
+                        <option value="" >Choose Dristrict Name</option>
+                        <option *ngFor="let item of Lisstsssssss" [value]="item.name">
+                          {{item.name}}
+                        </option>    
+                    </select>
+
+                    
+                </div>
+    
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                    <label class="form-label" for="thanaNameid">Thana Name</label>
+                    <select 
+                    id='thanaNameid' 
+                    name='thanaName' 
+                    class="form-control form-control-lg"
+                    
+                    [(ngModel)]="form.thanaName"
+                    #thanaName="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && thanaName.errors }"
+                    
+                    >
+                        <option value="" >Choose Thana Name</option>
+                        <option *ngFor="let item of Thana" [value]="item.name">
+                          {{item.name}}
+                        </option>    
+                    </select>
+
+                    
+                </div>
+    
+            </div>
+
+            <div class="col-md-6 mb-4 pb-2">
+    
+                <div class="form-outline">
+                   
+                    <label class="form-label" for="areaNameid">Area</label>
+                    <input 
+                    type="text" 
+                    name="areaName"
+                    id="areaNameid" 
+                    class="form-control 
+                    form-control-lg" 
+
+                    [(ngModel)]="form.areaName"
+                    #areaName="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && areaName.errors }"
+
+                    />
+                </div>
+    
+            </div>
+            
+            
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6 mb-4 pb-2">
+    
+                <div class="form-outline">
+                   
+                    <label class="form-label" for="emailAddress">Email</label>
+                    <input 
+                    type="email" 
+                    name="email"
+                    id="emailAddress" 
+                    class="form-control form-control-lg"
+                    [(ngModel)]="form.email"
+                    #email="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+
+                    />
+                </div>
+    
+            </div>
+            <div class="col-md-6 mb-4 pb-2">
+    
+                <div class="form-outline">
+                    <label class="form-label" for="phoneNumberid">Phone Number</label>
+                    <input 
+                    type="tel" 
+                    id="phoneNumberid" 
+                    name="phoneNumber"
+                    class="form-control form-control-lg" 
+                    [(ngModel)]="form.phoneNumber"
+                    #phoneNumber="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && phoneNumber.errors }"
+
+
+
+                    />
+                    
+                </div>
+    
+            </div>
+        </div>
+    
+      <div class="mt-4 pt-2">
+        <button class="btn btn-primary btn-lg">Registration</button>
+        </div>
+    
+    </form>
+
+    <div class="popup" id="popup" *ngIf="isSuccessful">
+        <div class="popups">
+            <h3>Your registration is successful!</h3>
+        </div>
+        <div>
+            <button style="margin-top: 35%; margin-left: 45%; width: 60px;" (click)="popupClose()">OK</button>
+        </div>
+    </div>
+    </div>

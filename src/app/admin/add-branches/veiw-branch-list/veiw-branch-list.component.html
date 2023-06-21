@@ -1,0 +1,199 @@
+
+<div style="margin-left: 80px; margin-right: 80px; margin-top: 20px;">
+    
+    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" >Branches List</h3>
+
+<div class="input-group" style="width: 520px; height: 40px;">
+  <input [(ngModel)]="UserListSearch" type="search" class="form-control rounded" placeholder=" Search..." aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary">Search</button>
+</div>
+<br>
+<div>
+  
+  <div style="float: left;">
+    <label for="" style="font-size: 20px; font-weight: bold">Show
+      <select name="" id="" [(ngModel)]="tableSize" (change)="pagenUmber()" style="font-size: 20px; ">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="">All</option>
+      </select>
+      entries
+    </label>
+  </div>
+  
+  
+  <div style="float: right;">
+    <pagination-controls style="font-size: 20px; font-weight: bold;"
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onTableSizechange($event)"
+    >
+  
+    </pagination-controls>
+  </div>
+  </div>
+
+<table class="table">
+    <thead>
+      <tr >
+        <th scope="col" (click)="sort('id')">ID <span class="fa fa-sort"></span></th>
+        <th scope="col" (click)="sort('branchName')">Bramch Name <span class="fa fa-sort"></span></th>
+        <th scope="col" (click)="sort('districtName')">District Name <span class="fa fa-sort"></span></th>
+        <th scope="col" (click)="sort('thanaName')">Thana Name <span class="fa fa-sort"></span></th>
+        <th scope="col" (click)="sort('areaName')">Area Name <span class="fa fa-sort"></span></th>
+        <th scope="col" (click)="sort('email')">Email <span class="fa fa-sort"></span></th>
+        <th scope="col" (click)="sort('phoneNumber')">Phone Number <span class="fa fa-sort"></span></th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of form | filter:UserListSearch | orderBy: oderHeader : isDescOrder | paginate:{
+        itemsPerPage:tableSize,
+        currentPage:page,
+       totalItems:count
+        };
+        let i= index ">
+        <td>{{v.id}}</td>
+        <td>{{v.branchName}}</td>
+        <td>{{v.districtName}}</td>
+        <td>{{v.thanaName}}</td>
+        <td>{{v.areaName}}</td>
+        <td>{{v.email}}</td>
+        <td>{{v.phoneNumber}}</td>
+
+    
+        <td><button data-bs-toggle="modal" data-bs-target="#signupModal" type="submit" (click)="edit(v)"><i class='bx bx-edit' style="font-size: 30px; color: rgb(118, 231, 26);"></i> </button></td>
+
+
+        <td><button type="submit"><i class='bx bx-trash' style="font-size: 30px; color: red;" (click)="delete(v)"></i></button></td>
+
+      </tr>
+
+   
+  </table>
+  <div>
+  
+    <div style="float: left;">
+      <label for="" style="font-size: 20px; font-weight: bold">Show
+        <select name="" id="" [(ngModel)]="tableSize" (change)="pagenUmber()" style="font-size: 20px; ">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="">All</option>
+        </select>
+        entries
+      </label>
+    </div>
+    
+    
+    <div style="float: right;">
+      <pagination-controls style="font-size: 20px; font-weight: bold;"
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableSizechange($event)"
+      >
+    
+      </pagination-controls>
+    </div>
+    </div>
+
+    </div>
+
+   
+    <!-- Sign Up Start -->
+    
+    <div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <form name="form">
+            <div class="modal-header">
+              <h5 class="modal-title d-flex align-items-center">
+                <i class="bi bi-person-lines-fill fs-3 me-2"></i>Branch Edit Form            
+              </h5>
+              <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"> 
+
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6 ps-0 mb-3">
+                    <label class="form-label" for="branchnameid">Branch Name</label>
+                    <input type="text" class="form-control shadow-none"
+                    [(ngModel)]="forms.branchName"
+                    name="branchname"
+                    id="branchnameid"
+                    >
+                  </div>
+                  <div class="col-md-6 ps-0 mb-3">
+                    <label class="form-label" for="districttNameid">District Name</label>
+                    <select 
+                    id='districttNameid' 
+                    name='districtName'
+                    [(ngModel)]="forms.districtName" 
+
+                    class="form-control shadow-none"
+                    >
+                        <option value="" >Choose Dristrict Name</option>
+                        <option *ngFor="let item of Lisstsssssss" [value]="item.name">
+                          {{item.name}}
+                        </option>    
+                    </select>
+
+                  </div>
+                  <div class="col-md-6 ps-0 mb-3">
+                    <label class="form-label" for="thanaNameid">Thana Name</label>
+                  
+                    <select 
+                    id='thanaNameid' 
+                    name='thanaName' 
+                    [(ngModel)]="forms.thanaName"
+                    class="form-control form-control-lg"
+                   
+                    >
+                        <option value="" >Choose Thana Name</option>
+                        <option *ngFor="let item of Thana" [value]="item.name">
+                          {{item.name}}
+                        </option>    
+                    </select>
+                  </div>
+                  <div class="col-md-6 ps-0">
+                    <label class="form-label" for="areaid">Area</label>
+
+                    <input type="text" class="form-control shadow-none"
+                    id="areaid"
+                    name="areaName"
+                    [(ngModel)]="forms.areaName"
+                    >
+                  </div>
+                  <div class="col-md-6 ps-0">
+                    <label class="form-label">Email</label>                
+                    <input type="email" class="form-control shadow-none"
+                    name="email"
+                    [(ngModel)]="forms.email"
+                    >
+                  </div> 
+                  <div class="col-md-6 ps-0 mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control shadow-none"
+                   
+                    name="phoneNumber"
+                    [(ngModel)]="forms.phoneNumber"
+                    
+                    >
+                  </div>  
+                </div>
+              </div>
+              <div class="text-center my-1">
+                <button type="submit" class="btn btn-dark shadow-none"(click)="udpdate()" data-bs-dismiss="modal" aria-label="Close">Update</button>
+    
+              </div>
+          
+            </div>       
+          </form>     
+        </div>
+      </div>
+    </div>
+

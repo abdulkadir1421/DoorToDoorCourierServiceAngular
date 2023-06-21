@@ -1,0 +1,260 @@
+<div class="home-content ">
+    <div style="margin-left: 100px; margin-right: 100px; margin-top: 20px;   ">
+        <br>
+        <br>
+        <br>
+        <h3 class="fw-normal mb-3 pb-3"><B style="font-size: 25px; margin-left: 180px;">Courier Form</B></h3>
+        <form [formGroup]="form" (ngSubmit)="saveValue()" style="width: 1100px; margin: auto; ">
+            <!-- product sender information div start -->
+            <div style="background-color: rgb(109, 179, 226); padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            border-radius: 10px;">
+                <h3 class="fw-normal mb-3 pb-3"><B style="font-size: 25px;"><u>Product
+                            Sender Information</u></B></h3>
+                <div class="row" style="margin-top: -30px;">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline" style="margin-right : 15px">
+                            <label class="form-label" for="pickpoinnameid">Name</label>
+                            <input formControlName="p_senderName" type="text" name="p_senderName" id="pickpoinnameid"
+                                class="form-control 
+form-control-lg"  />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label class="form-label" for="genderid"><b>Gender</b></label><br>
+                            <label class="form-control">
+                                <input formControlName="p_senderGender" style="height: 22px; width: 22px;" type="radio"
+                                    id="genderid" class="" value="Male" /> <b style="font-size: 20px;">
+                                    &nbsp; Male</b>
+                                &nbsp;
+                                <input formControlName="p_senderGender" type="radio" style="height: 22px; width: 22px;"
+                                    id="genderid" class="" value="Female" /> <b style="font-size: 20px;">
+                                    &nbsp;Female</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                            <label class="form-label" for="phonenuberid">Phone Number</label>
+                            <input formControlName="p_senderPhone" type="text" name="p_senderPhone" id="phonenuberid"
+                                class="form-control 
+form-control-lg" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                            <label class="form-label" for="areaid">Address</label>
+                            <input formControlName="p_senderAddress" type="text" name="p_senderAddress" id="areaid" class="form-control 
+form-control-lg" />
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <!-- product sender information div end -->
+
+            <!-- product reciver infromation div start -->
+            <div style="background-color: rgb(109, 179, 226);
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            border-radius: 10px;">
+
+                <h3 class="fw-normal mb-3 pb-3"><B style="font-size: 25px;"><u>Product
+                            Reciver Information</u></B></h3>
+
+                <div class="row" style="margin-top: -30px;">
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label class="form-label" for="pickpoinnameid">Name</label>
+                            <input formControlName="p_ReceiverName" type="text" name="p_ReceiverName"
+                                id="pickpoinnameid" class="form-control 
+            form-control-lg" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label class="form-label" for="genderid"><b>Gender</b></label><br>
+                            <label class="form-control">
+                                <input formControlName="p_ReceiverGender" style="height: 22px; width: 22px;"
+                                    type="radio" id="genderid" class="" value="Male" /> <b style="font-size: 20px;">
+                                    &nbsp; Male</b>
+                                &nbsp;
+                                <input formControlName="p_ReceiverGender" type="radio"
+                                    style="height: 22px; width: 22px;" id="genderid" class="" value="Female" /> <b
+                                    style="font-size: 20px;"> &nbsp;Female</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                            <label class="form-label" for="phonenuberid">Phone Number</label>
+                            <input formControlName="p_ReceiverPhone" type="text" name="p_ReceiverPhone"
+                                id="phonenuberid" class="form-control 
+            form-control-lg" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+
+                            <label class="form-label" for="areaid">Address</label>
+                            <input formControlName="p_ReceiverAddress" type="text" name="p_ReceiverAddress" id="areaid" class="form-control 
+            form-control-lg" />
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                
+             
+
+            </div>
+            <br>
+            <!-- product reciver infromation div end -->
+
+
+
+
+            <!-- product information div start -->
+            <div style="background-color: rgb(109, 179, 226);padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            border-radius: 10px;">
+
+                <h3 class="fw-normal mb-3 pb-3"><B style="font-size: 25px;"><u>Product
+                            Information</u></B></h3>
+
+                <div class="row" style="margin-top: -30px;">
+
+                    <div class="col-md-6 mb-4">
+
+                        <div class="form-outline">
+                            <label class="form-label" for="prodcuttypeid">Product
+                                Type</label>
+                            <select formControlName="prodcuttype" id='prodcuttypeid' name='prodcuttype'
+                                class="form-control form-control-lg">
+                                <option value="">Choose Product Type</option>
+                                <option>Pepers</option>
+                                <option>Fruts</option>
+                                <option>Furnitures</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label class="form-label" for="Productnameid">Product Name</label>
+                            <input formControlName="productname" type="text" name="Productname" id="Productname" class="form-control 
+                form-control-lg" />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+
+                            <label class="form-label" for="productwidthid">Product width</label>
+                            <input formControlName="productwidth" type="text" name="productwidth" id="productwidthid"
+                                class="form-control 
+                        form-control-lg" />
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                            <label class="form-label" for="productheightid">Product Height</label>
+                            <input formControlName="productheight" type="text" name="productheight" id="productheightid"
+                                class="form-control 
+                        form-control-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                            <label class="form-label" for="productwidthid">Product Weight</label>
+                            <input formControlName="productweight"  type="text" name="productweight" id="productwidthid"
+                                class="form-control 
+                        form-control-lg" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline">
+                            <label class="form-label" for="productwidthid">Charge Amount</label>
+                            <input formControlName="chargeAmount"  type="text" name="chargeAmount" id="productwidthid"
+                                class="form-control 
+                        form-control-lg" />
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <br>
+            <!-- product information div end -->
+
+            <!-- product charge div start -->
+            <div style="width: 700px; margin-left: 10px;">         
+            <div class="row" >
+                <h3 ><B style="font-size: 25px; margin-left: -10px;"><u>Payment Method</u></B></h3>
+                    <label class="form-control">
+                        <input formControlName="paymentMethod" style="height: 22px; width: 22px;" type="radio" name="payment" id="genderid" class=""
+                            value="Cash On Payment" />
+                        <b style="font-size: 20px;"> &nbsp; Cash On Payment</b>
+                        &nbsp;
+                        <input formControlName="paymentMethod" style="height: 22px; width: 22px;" type="radio" name="payment" id="genderid" class=""
+                            value="Online Payment" />
+                        <b style="font-size: 20px;"> &nbsp; Online Payment</b>
+                        &nbsp;
+                    </label>
+                </div>
+
+      
+          </div>
+            <!-- product charge div end -->
+
+
+
+            <div class="mt-4 pt-2">
+                <button class="btn btn-primary btn-lg" type="submit">Registration</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </form>
+
+    </div>
+
+
+</div>
